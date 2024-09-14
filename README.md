@@ -6,21 +6,24 @@ In the world of data engineering, the journey from data retrieval to insightful 
 
 ![Architecture](https://github.com/vishal-bulbule/cricket-stat-data-engineering-project/blob/master/Architecture.png)
 
-### Data Retrieval with Python and Cricbuzz API
-The foundation of our project begins with Python’s prowess in interfacing with APIs. We’ll delve into the methods of fetching cricket statistics from the Cricbuzz API, harnessing the power of Python to gather the required data efficiently.
+## Data Pipeline for Cricket Statistics: From API to Visual Dashboard
+### 1. Data Retrieval with Python and the Cricbuzz API
+The project begins by leveraging Python's robust capabilities to interface with the Cricbuzz API. We will explore efficient methods for retrieving detailed cricket statistics, ensuring data accuracy and timeliness. Python's libraries, such as requests and json, will facilitate seamless API communication, fetching the necessary data in real-time or on-demand.
 
-### Storing Data in Google Cloud Storage (GCS)
-Once the data is obtained, our next step involves preserving it securely in the cloud. We’ll explore how to store this data in a CSV format within Google Cloud Storage (GCS), ensuring accessibility and scalability for future processing.
+### 2. Storing Data in Google Cloud Storage (GCS)
+Once the cricket data is retrieved, the next step is to securely store it in the cloud. We will store the data in a structured CSV format within Google Cloud Storage (GCS), providing scalability and easy access for future use. Using the google-cloud-storage Python library, we’ll automate the process of saving and managing files in GCS, making sure the pipeline is reliable and efficient.
 
-### Creating a Cloud Function Trigger
-With our data safely stored, we proceed to set up a Cloud Function that acts as the catalyst for our pipeline. This function triggers upon file upload to the GCS bucket, serving as the initiator for our subsequent data processing steps.
+### 3. Creating a Cloud Function Trigger
+To automate the data pipeline, we will configure a Google Cloud Function that triggers upon file uploads to a designated GCS bucket. This serverless function serves as the entry point for the next stages of data processing, reacting instantly to the presence of new data and minimizing latency in the workflow.
 
-### Execution of the Cloud Function
-Within the Cloud Function, intricate code is crafted to precisely trigger a Dataflow job. We’ll meticulously handle triggers and pass the requisite parameters to seamlessly initiate the Dataflow job, ensuring a smooth flow of data processing.
+### 4. Executing the Cloud Function
+Once triggered, the Cloud Function will contain custom logic to start a Dataflow job. It will pass necessary parameters such as the file path, ensuring a smooth transition to the data processing stage. This function is crucial for orchestrating the pipeline, as it ensures that all processes downstream are initiated automatically and accurately.
 
-### Dataflow Job for BigQuery
-The core of our pipeline lies in the Dataflow job. Triggered by the Cloud Function, this job orchestrates the transfer of data from the CSV file in GCS to BigQuery. We’ll meticulously configure the job settings to ensure optimal performance and accurate data ingestion into BigQuery.
+### 5. Dataflow Job for BigQuery Ingestion
+At the core of our pipeline is the Dataflow job, which handles the transformation and loading of data from the CSV file in GCS to Google BigQuery. Dataflow will process the data, applying any required transformations or aggregations, and then ingest the data into BigQuery. Proper configuration of the job’s settings will ensure efficient data handling and loading, optimized for performance and scale.
 
-### Looker Dashboard Creation
-Finally, we’ll explore the potential of BigQuery as a data source for Looker Studio. Configuring Looker to connect with BigQuery, we’ll create a visually compelling dashboard. This dashboard will serve as the visualization hub, enabling insightful analysis based on the data loaded from our cricket statistics pipeline.
+### 6. Building a Looker Studio Dashboard
+To complete the pipeline, we will visualize the cricket data using Looker Studio. By configuring BigQuery as a data source, we can create dynamic, visually compelling dashboards. These dashboards will provide powerful insights into the cricket statistics, allowing users to interact with and analyze the data in real-time. The visualization will serve as the final step, bringing data to life for stakeholders.
+
+
 ![Looker](https://github.com/vishal-bulbule/cricket-stat-data-engineering-project/blob/master/Looker.png)
